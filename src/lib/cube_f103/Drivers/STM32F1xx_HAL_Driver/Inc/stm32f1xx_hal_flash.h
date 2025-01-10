@@ -24,7 +24,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include <cube_f103/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h>
+#include "stm32f1xx_hal_def.h"
    
 /** @addtogroup STM32F1xx_HAL_Driver
   * @{
@@ -243,7 +243,7 @@ typedef struct
   */ 
 
 /* Include FLASH HAL Extended module */
-#include <cube_f103/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h>  
+#include "stm32f1xx_hal_flash_ex.h"  
 
 /* Exported functions --------------------------------------------------------*/
 /** @addtogroup FLASH_Exported_Functions

@@ -235,19 +235,19 @@
   */
 
 #ifdef HAL_RCC_MODULE_ENABLED
-#include "../../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
+#include "stm32f1xx_hal_rcc.h"
 #endif /* HAL_RCC_MODULE_ENABLED */
 
 #ifdef HAL_GPIO_MODULE_ENABLED
-#include "../../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+#include "stm32f1xx_hal_gpio.h"
 #endif /* HAL_GPIO_MODULE_ENABLED */
 
 #ifdef HAL_EXTI_MODULE_ENABLED
-#include "../../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h"
+#include "stm32f1xx_hal_exti.h"
 #endif /* HAL_EXTI_MODULE_ENABLED */
 
 #ifdef HAL_DMA_MODULE_ENABLED
-#include "../../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+#include "stm32f1xx_hal_dma.h"
 #endif /* HAL_DMA_MODULE_ENABLED */
 
 #ifdef HAL_ETH_MODULE_ENABLED
@@ -267,7 +267,7 @@
 #endif /* HAL_CEC_MODULE_ENABLED */
 
 #ifdef HAL_CORTEX_MODULE_ENABLED
-#include "../../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
+#include "stm32f1xx_hal_cortex.h"
 #endif /* HAL_CORTEX_MODULE_ENABLED */
 
 #ifdef HAL_ADC_MODULE_ENABLED
@@ -283,7 +283,7 @@
 #endif /* HAL_DAC_MODULE_ENABLED */
 
 #ifdef HAL_FLASH_MODULE_ENABLED
-#include "../../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h"
+#include "stm32f1xx_hal_flash.h"
 #endif /* HAL_FLASH_MODULE_ENABLED */
 
 #ifdef HAL_SRAM_MODULE_ENABLED
@@ -307,7 +307,7 @@
 #endif /* HAL_IWDG_MODULE_ENABLED */
 
 #ifdef HAL_PWR_MODULE_ENABLED
-#include "../../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h"
+#include "stm32f1xx_hal_pwr.h"
 #endif /* HAL_PWR_MODULE_ENABLED */
 
 #ifdef HAL_RTC_MODULE_ENABLED

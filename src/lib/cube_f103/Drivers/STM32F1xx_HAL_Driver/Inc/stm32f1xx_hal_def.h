@@ -26,8 +26,8 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include <cube_f103/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h>
-#include <cube_f103/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h>
+#include "../../CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
+#include "Legacy/stm32_hal_legacy.h"
 #include <stddef.h>
 
 /* Exported types ------------------------------------------------------------*/

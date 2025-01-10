@@ -128,8 +128,8 @@ typedef enum
   * @}
   */
 
-#include <cube_f103/Drivers/CMSIS/Include/core_cm3.h>
-#include <cube_f103/Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h>
+#include "../../../../Include/core_cm3.h"
+#include "system_stm32f1xx.h"
 #include <stdint.h>
 
 /** @addtogroup Peripheral_registers_structures

@@ -127,7 +127,7 @@
 #elif defined(STM32F103x6)
   #include "stm32f103x6.h"
 #elif defined(STM32F103xB)
-  #include <cube_f103/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h>
+  #include "stm32f103xb.h"
 #elif defined(STM32F103xE)
   #include "stm32f103xe.h"
 #elif defined(STM32F103xG)

@@ -25,7 +25,7 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include <cube_f103/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h>
+#include "stm32f1xx_hal_def.h"
 
 /** @addtogroup STM32F1xx_HAL_Driver
   * @{
@@ -209,7 +209,7 @@ typedef enum
   */
 
 /* Include GPIO HAL Extension module */
-#include <cube_f103/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h>
+#include "stm32f1xx_hal_gpio_ex.h"
 
 /* Exported functions --------------------------------------------------------*/
 /** @addtogroup GPIO_Exported_Functions

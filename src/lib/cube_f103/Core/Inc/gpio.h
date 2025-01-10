@@ -26,7 +26,7 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "../../../stm32f103rb_fw/Core/Inc/main.h"
+#include "main.h"
 
 /* USER CODE BEGIN Includes */
 
