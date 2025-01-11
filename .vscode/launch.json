@@ -1,0 +1,23 @@
+{
+    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+    // 기존 특성에 대한 설명을 보려면 가리킵니다.
+    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "cwd": "${workspaceFolder}",
+            "executable": "./Debug/stm32f103rb_fw.elf",
+            "name": "Debug with ST-Link",
+            "request": "launch",
+            "type": "cortex-debug",
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "none",
+            "servertype": "stlink",
+            "windows": {
+                "serverpath": "/opt/ST/STM32CubeCLT_1.17.0/STLink-gdb-server/bin/ST-LINK_gdbserver",
+                "stm32cubeprogrammer": "/opt/ST/STM32CubeCLT_1.17.0/STM32CubeProgrammer/bin",
+                "svdFile": "/opt/ST/STM32CubeCLT_1.17.0/STMicroelectronics_CMSIS_SVD/STM32F103.svd"
+            }
+        }
+    ]
+}

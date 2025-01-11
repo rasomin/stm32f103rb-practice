@@ -1,0 +1,10 @@
+{
+    "makefile.configurations": [
+      {
+          "name": "stm32-build",
+          "makeArgs": ["-j7"],
+      }
+    ],  
+    "makefile.makeDirectory": "Debug",
+    "makefile.compileCommandsPath": "Debug/compile_commands.json"
+}
