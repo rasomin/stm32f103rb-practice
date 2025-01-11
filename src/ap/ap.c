@@ -31,7 +31,7 @@ void apMain(void)
 	while(1)
 	{
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-		delay(500);
+		delay(1500);
 
 	}
 }
