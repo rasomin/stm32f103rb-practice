@@ -13,7 +13,7 @@
             "runToEntryPoint": "main",
             "showDevDebugOutput": "none",
             "servertype": "stlink",
-            "windows": {
+            "osx": {
                 "serverpath": "/opt/ST/STM32CubeCLT_1.17.0/STLink-gdb-server/bin/ST-LINK_gdbserver",
                 "stm32cubeprogrammer": "/opt/ST/STM32CubeCLT_1.17.0/STM32CubeProgrammer/bin",
                 "svdFile": "/opt/ST/STM32CubeCLT_1.17.0/STMicroelectronics_CMSIS_SVD/STM32F103.svd"
