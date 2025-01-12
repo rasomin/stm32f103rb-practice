@@ -1,12 +1,12 @@
 /*
  * led.h
  *
- *  Created on: Jan 11, 2025
+ *  Created on: Jan 12, 2025
  *      Author: solini
  */
 
-#ifndef SRC_COMMON_HW_INCLUDE_LED_H_
-#define SRC_COMMON_HW_INCLUDE_LED_H_
+#ifndef COMMON_HW_INCLUDE_LED_H_
+#define COMMON_HW_INCLUDE_LED_H_
 
 #include "hw_def.h"
 
@@ -21,4 +21,4 @@ void ledToggle(uint8_t ch);
 
 #endif
 
-#endif /* SRC_COMMON_HW_INCLUDE_LED_H_ */
+#endif /* COMMON_HW_INCLUDE_LED_H_ */

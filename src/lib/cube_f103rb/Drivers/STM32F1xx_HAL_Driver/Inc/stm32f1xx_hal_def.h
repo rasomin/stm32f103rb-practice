@@ -26,7 +26,7 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "../../CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
+#include "stm32f1xx.h"
 #include "Legacy/stm32_hal_legacy.h"
 #include <stddef.h>
 

@@ -6,7 +6,7 @@
     "configurations": [
         {
             "cwd": "${workspaceFolder}",
-            "executable": "./Debug/stm32f103rb_fw.elf",
+            "executable": "./Debug/f103rb_fw.elf",
             "name": "Debug with ST-Link",
             "request": "launch",
             "type": "cortex-debug",

@@ -1,14 +1,16 @@
 /*
  * def.h
  *
- *  Created on: Jan 9, 2025
+ *  Created on: Jan 12, 2025
  *      Author: solini
  */
 
-#ifndef SRC_COMMON_DEF_H_
-#define SRC_COMMON_DEF_H_
+#ifndef COMMON_DEF_H_
+#define COMMON_DEF_H_
 
-#include <stdint.h>
+
+
 #include <stdbool.h>
+#include <stdint.h>
 
-#endif /* SRC_COMMON_DEF_H_ */
+#endif /* COMMON_DEF_H_ */

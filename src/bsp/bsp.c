@@ -1,12 +1,13 @@
 /*
  * bsp.c
  *
- *  Created on: Jan 9, 2025
+ *  Created on: Jan 12, 2025
  *      Author: solini
  */
 
 
 #include "bsp.h"
+
 
 void SystemClock_Config(void);
 
@@ -17,6 +18,7 @@ void bspInit(void)
 
 	__HAL_RCC_GPIOD_CLK_ENABLE();
 	__HAL_RCC_GPIOA_CLK_ENABLE();
+
 }
 
 void delay(uint32_t ms)
@@ -28,6 +30,7 @@ uint32_t millis(void)
 {
 	return HAL_GetTick();
 }
+
 
 
 

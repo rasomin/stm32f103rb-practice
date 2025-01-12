@@ -1,12 +1,13 @@
 /*
  * ap.c
  *
- *  Created on: Jan 9, 2025
+ *  Created on: Jan 12, 2025
  *      Author: solini
  */
 
 
 #include "ap.h"
+
 
 void apInit(void)
 {
@@ -28,10 +29,9 @@ void apInit(void)
 
 void apMain(void)
 {
-	while(1)
+	while (1)
 	{
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 		delay(1500);
-
 	}
 }

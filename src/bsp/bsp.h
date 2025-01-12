@@ -1,12 +1,12 @@
 /*
  * bsp.h
  *
- *  Created on: Jan 9, 2025
+ *  Created on: Jan 12, 2025
  *      Author: solini
  */
 
-#ifndef SRC_BSP_BSP_H_
-#define SRC_BSP_BSP_H_
+#ifndef BSP_BSP_H_
+#define BSP_BSP_H_
 
 #include "def.h"
 
@@ -19,4 +19,4 @@ uint32_t millis(void);
 
 void Error_Handler(void);
 
-#endif /* SRC_BSP_BSP_H_ */
+#endif /* BSP_BSP_H_ */
