@@ -23,7 +23,6 @@ void bspInit(void)
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
 
 
-	/*Configure GPIO pin : PA5 */
   GPIO_InitStruct.Pin = GPIO_PIN_12;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
