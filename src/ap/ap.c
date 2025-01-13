@@ -9,6 +9,8 @@
 #include "ap.h"
 
 
+extern uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+
 void apInit(void)
 {
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -33,5 +35,7 @@ void apMain(void)
 	{
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 		delay(1500);
+
+		CDC_Transmit_FS("test\n", 6);
 	}
 }
