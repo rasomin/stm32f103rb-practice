@@ -23,11 +23,11 @@ void apMain(void)
 
 		if (buttonGetPressed(0) == true)
 		{
-			ledOff(0);
+			ledOn(0);
 		}
 		else
 		{
-			ledOn(0);
+			ledOff(0);
 		}
 	}
 }

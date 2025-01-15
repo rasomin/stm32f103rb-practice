@@ -28,7 +28,7 @@ bool buttonInit(void)
 
 bool buttonGetPressed(uint8_t ch)
 {
-    if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET)
+    if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_SET)
     {
         return true;
     }
