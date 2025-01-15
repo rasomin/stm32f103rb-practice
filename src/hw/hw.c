@@ -15,4 +15,5 @@ void hwInit(void)
 
 
 	ledInit();
+	buttonInit();
 }

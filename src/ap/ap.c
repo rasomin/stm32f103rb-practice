@@ -18,7 +18,16 @@ void apMain(void)
 {
 	while (1)
 	{
-		ledToggle(_DEF_LED1);
-		delay(1500);
+		// ledToggle(_DEF_LED1);
+		// delay(500);
+
+		if (buttonGetPressed(0) == true)
+		{
+			ledOff(0);
+		}
+		else
+		{
+			ledOn(0);
+		}
 	}
 }

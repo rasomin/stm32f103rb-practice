@@ -31,9 +31,6 @@ bool ledInit(void)
 
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
 
-	/* GPIO Ports Clock Enable */
-	__HAL_RCC_GPIOA_CLK_ENABLE();
-
 	/*Configure GPIO pin : PA5 */
 
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
