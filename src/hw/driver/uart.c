@@ -7,15 +7,11 @@
 
 
 #include "uart.h"
+#include "cdc.h"
 
 static bool is_open[UART_MAX_CH];
 
 
-extern uint32_t cdcAvailable(void);
-extern uint8_t cdcRead(void);
-extern void cdcDataIn(uint8_t rx_data);
-extern uint32_t cdcWrite(uint8_t *p_data, uint32_t length);
-extern uint32_t cdcGetBaud(void);
 
 
 bool uartInit(void)
