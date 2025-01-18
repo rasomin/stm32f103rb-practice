@@ -13,6 +13,7 @@
 void apInit(void)
 {
 	uartOpen(_DEF_UART1, 115200);
+	uartOpen(_DEF_UART2, 115200);
 }
 
 void apMain(void)
@@ -27,6 +28,8 @@ void apMain(void)
 		{
 			pre_time = millis();
 			ledToggle(_DEF_LED1);
+
+			uartPrintf(_DEF_UART2, "Uart1 %d\n", millis()); 
 		}
 	}
 }

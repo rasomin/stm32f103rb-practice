@@ -12,6 +12,7 @@
 static bool is_open[UART_MAX_CH];
 
 
+UART_HandleTypeDef huart2;
 
 
 bool uartInit(void)
@@ -34,7 +35,27 @@ bool uartOpen(uint8_t ch, uint32_t baud)
             is_open[ch] = true;
             ret = true;
             break;
-        
+
+        case _DEF_UART2:
+        	huart2.Instance = USART2;
+        	huart2.Init.BaudRate = baud;
+        	huart2.Init.WordLength = UART_WORDLENGTH_8B;
+        	huart2.Init.StopBits = UART_STOPBITS_1;
+        	huart2.Init.Parity = UART_PARITY_NONE;
+        	huart2.Init.Mode = UART_MODE_TX_RX;
+        	huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+        	huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+        	if (HAL_UART_Init(&huart2) != HAL_OK)
+        	{
+        	  ret = false;
+        	}
+            else
+            {
+                ret = true;
+                is_open[ch] = true;
+            }
+        	break;
+
     }
 
     return ret;
@@ -71,11 +92,20 @@ uint8_t uartRead(uint8_t ch)
 uint32_t uartWrite(uint8_t ch, uint8_t *p_data, uint32_t length)
 {
     uint32_t ret = 0;
+    HAL_StatusTypeDef status;
 
     switch (ch)
     {
         case _DEF_UART1:
             ret = cdcWrite(p_data, length);
+            break;
+
+        case _DEF_UART2:
+            status = HAL_UART_Transmit(&huart2, p_data, length, 100);
+            if (status == HAL_OK)
+            {
+                ret = length;
+            }
             break;
     }
 
@@ -111,4 +141,72 @@ uint32_t uartGetBaud(uint8_t ch)
     }
 
     return ret;
+}
+
+
+
+
+
+
+
+
+void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
+{
+
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  if(uartHandle->Instance==USART2)
+  {
+  /* USER CODE BEGIN USART2_MspInit 0 */
+
+  /* USER CODE END USART2_MspInit 0 */
+    /* USART2 clock enable */
+    __HAL_RCC_USART2_CLK_ENABLE();
+
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+    /**USART2 GPIO Configuration
+    PA2     ------> USART2_TX
+    PA3     ------> USART2_RX
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_2;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = GPIO_PIN_3;
+    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+    /* USART2 interrupt Init */
+    HAL_NVIC_SetPriority(USART2_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(USART2_IRQn);
+  /* USER CODE BEGIN USART2_MspInit 1 */
+
+  /* USER CODE END USART2_MspInit 1 */
+  }
+}
+
+void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
+{
+
+  if(uartHandle->Instance==USART2)
+  {
+  /* USER CODE BEGIN USART2_MspDeInit 0 */
+
+  /* USER CODE END USART2_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_USART2_CLK_DISABLE();
+
+    /**USART2 GPIO Configuration
+    PA2     ------> USART2_TX
+    PA3     ------> USART2_RX
+    */
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_2|GPIO_PIN_3);
+
+    /* USART2 interrupt Deinit */
+    HAL_NVIC_DisableIRQ(USART2_IRQn);
+  /* USER CODE BEGIN USART2_MspDeInit 1 */
+
+  /* USER CODE END USART2_MspDeInit 1 */
+  }
 }
