@@ -8,8 +8,13 @@
 
 #include "uart.h"
 #include "cdc.h"
+#include "qbuffer.h"
 
 static bool is_open[UART_MAX_CH];
+
+static qbuffer_t qbuffer[UART_MAX_CH];
+static uint8_t rx_buf[256];
+static uint8_t rx_data[UART_MAX_CH];
 
 
 UART_HandleTypeDef huart2;
@@ -45,6 +50,11 @@ bool uartOpen(uint8_t ch, uint32_t baud)
         	huart2.Init.Mode = UART_MODE_TX_RX;
         	huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
         	huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+
+
+            qbufferCreate(&qbuffer[_DEF_UART2], &rx_buf[0], 256);
+
+
         	if (HAL_UART_Init(&huart2) != HAL_OK)
         	{
         	  ret = false;
@@ -53,6 +63,11 @@ bool uartOpen(uint8_t ch, uint32_t baud)
             {
                 ret = true;
                 is_open[ch] = true;
+
+                if (HAL_UART_Receive_IT(&huart2, (uint8_t *)&rx_data[_DEF_UART2], 1) != HAL_OK)
+                {
+                    ret = false;
+                }
             }
         	break;
 
@@ -70,6 +85,10 @@ uint32_t uartAvailable(uint8_t ch)
         case _DEF_UART1:
             ret = cdcAvailable();
             break;
+        
+        case _DEF_UART2:
+            ret = qbufferAvailable(&qbuffer[_DEF_UART2]);
+            break;
     }
 
     return ret;
@@ -83,6 +102,10 @@ uint8_t uartRead(uint8_t ch)
     {
         case _DEF_UART1:
             ret = cdcRead();
+            break;
+
+        case _DEF_UART2:
+            qbufferRead(&qbuffer[_DEF_UART2], &ret, 1);
             break;
     }
 
@@ -145,8 +168,24 @@ uint32_t uartGetBaud(uint8_t ch)
 
 
 
+void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
+{
+    if (huart->Instance == USART2)
+    {
+
+    }
+}
 
 
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+    if (huart->Instance == USART2)
+    {
+        qbufferWrite(&qbuffer[_DEF_UART2], &rx_data[_DEF_UART2], 1);
+
+        HAL_UART_Receive_IT(&huart2, (uint8_t *)&rx_data[_DEF_UART2], 1);
+    }
+}
 
 
 
