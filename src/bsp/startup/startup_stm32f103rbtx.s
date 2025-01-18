@@ -162,7 +162,7 @@ g_pfnVectors:
   .word	DMA1_Channel7_IRQHandler  			/* DMA1 Channel7 global interrupt                   */
   .word	ADC1_2_IRQHandler         			/* ADC1 and ADC2 global interrupt                   */
   .word	USB_HP_CAN_TX_IRQHandler  			/* USB High Priority or CAN TX interrupts           */
-  .word	USB_LP_CAN_RX0_IRQHandler 			/* USB Low Priority or CAN RX0 interrupts           */
+  .word	USB_LP_CAN1_RX0_IRQHandler 			/* USB Low Priority or CAN RX0 interrupts           */
   .word	CAN_RX1_IRQHandler        			/* CAN RX1 interrupt                                */
   .word	CAN_SCE_IRQHandler        			/* CAN SCE interrupt                                */
   .word	EXTI9_5_IRQHandler        			/* EXTI Line[9:5] interrupts                        */
