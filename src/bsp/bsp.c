@@ -8,6 +8,7 @@
 
 #include "bsp.h"
 #include "usb_device.h"
+#include "uart.h"
 
 
 void SystemClock_Config(void);
@@ -49,6 +50,14 @@ void delay(uint32_t ms)
 uint32_t millis(void)
 {
 	return HAL_GetTick();
+}
+
+int __io_putchar(int ch)
+{
+  // uart로 printf 캐릭터 전송
+  uartWrite(_DEF_UART2, (uint8_t *)&ch, 1);
+
+  return 1;
 }
 
 
