@@ -59,6 +59,8 @@ bool flashErase(uint32_t addr, uint32_t length)
 
     if (sector_count > 0)
     {
+        HAL_FLASH_Unlock();
+
         init.TypeErase = FLASH_TYPEERASE_PAGES;
         init.Banks = FLASH_BANK_1;
         init.PageAddress = flash_tbl[start_sector_num].addr;
@@ -70,6 +72,8 @@ bool flashErase(uint32_t addr, uint32_t length)
         {
             ret = true;
         }
+
+        HAL_FLASH_Lock();
     }
 
 
