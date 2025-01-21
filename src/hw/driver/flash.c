@@ -42,7 +42,7 @@ bool flashErase(uint32_t addr, uint32_t length)
     FLASH_EraseInitTypeDef init;
     uint32_t page_error;
 
-    uint16_t start_sector_num = -1;
+    int16_t start_sector_num = -1;
     uint32_t sector_count = 0;
 
     for (int i = 0; i < FLASH_SECTOR_MAX; i++)
@@ -82,14 +82,48 @@ bool flashErase(uint32_t addr, uint32_t length)
 
 bool flashWrite(uint32_t addr, uint8_t *p_data, uint32_t length)
 {
-    bool ret = false;
+    bool ret = true;
+
+    HAL_StatusTypeDef status;
+
+    if (addr % 2 != 0)
+    {
+        return false;
+    }
+
+    HAL_FLASH_Unlock();
+
+    for (int i = 0; i < length; i += 2)
+    {
+        uint16_t data;
+
+        data  = p_data[i + 0] << 0;
+        data |= p_data[i + 1] << 8;
+
+        status = HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, addr + i, (uint64_t)data);
+
+        if (status != HAL_OK)
+        {
+            ret = false;
+            break;
+        }
+    }
+
+    HAL_FLASH_Lock();
 
     return ret;
 }
 
 bool flashRead(uint32_t addr, uint8_t *p_data, uint32_t length)
 {
-    bool ret = false;
+    bool ret = true;
+
+    uint8_t *p_byte = (uint8_t *)addr;
+
+    for (int i = 0; i < length; i++)
+    {
+        p_data[i] = p_byte[i];
+    }
 
     return ret;
 }

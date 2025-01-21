@@ -13,6 +13,7 @@
 #include "led.h"
 #include "button.h"
 #include "uart.h"
+#include "flash.h"
 
 void hwInit(void);
 
