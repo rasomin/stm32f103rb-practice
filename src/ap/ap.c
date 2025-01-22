@@ -42,11 +42,11 @@ void apMain(void)
 
 				logPrintf("Read...\n");
 
-				flashRead(0x8000000 + (100*1024), buf, 32);
+				flashRead(0x8000000 + (60*1024), buf, 32);
 
 				for (int i = 0; i < 32; i++)
 				{
-					logPrintf("0x%X : 0x%X\n", 0x8000000 + (100*1024)+i, buf[i]);
+					logPrintf("0x%X : 0x%X\n", 0x8000000 + (60*1024)+i, buf[i]);
 				}
 			}
 
@@ -54,7 +54,7 @@ void apMain(void)
 			{
 				logPrintf("Erase...\n");
 
-				if (flashErase(0x8000000 + (100*1024), 32) == true)
+				if (flashErase(0x8000000 + (60*1024), 32) == true)
 				{
 					logPrintf("Erase OK\n");
 				}
@@ -75,7 +75,7 @@ void apMain(void)
 
 				logPrintf("Write...\n");
 
-				if (flashWrite(0x8000000 + (100*1024), buf, 32) == true)
+				if (flashWrite(0x8000000 + (60*1024), buf, 32) == true)
 				{
 					logPrintf("Write OK\n");
 				}
