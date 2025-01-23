@@ -13,7 +13,8 @@ void hwInit(void)
 {
 	bspInit();
 
-
+	cliInit();
+	
 	ledInit();
 	buttonInit();
 	uartInit();
