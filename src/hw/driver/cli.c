@@ -12,8 +12,8 @@
 
 
 
-#define CLI_KEY_BACK              0x08
-#define CLI_KEY_DEL               0x7F
+#define CLI_KEY_BACK              0x7F
+#define CLI_KEY_DEL               0x7E
 #define CLI_KEY_ENTER             0x0D
 #define CLI_KEY_ESC               0x1B
 #define CLI_KEY_LEFT              0x44
@@ -64,7 +64,7 @@ typedef struct
 } cli_t;
 
 
-cli_t cli_node;
+static cli_t cli_node;
 
 
 static bool cliUpdate(cli_t *p_cli, uint8_t rx_data);
