@@ -13,6 +13,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdarg.h>
+#include <string.h>
+#include <stdlib.h>
 
 
 #define _DEF_LED1 0
